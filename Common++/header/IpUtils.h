@@ -2,6 +2,11 @@
 #define PCAPPP_IP_UTILS
 
 #include <stdint.h>
+#ifdef FREEBSD
+#include <sys/socket.h>
+#include <in.h>
+#include <arpa/inet.h>
+#endif
 #ifdef LINUX
 #include <in.h>
 #include <arpa/inet.h>

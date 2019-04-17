@@ -24,6 +24,9 @@ LIGHT_PCAPNG_OBJS_FILENAMES := $(patsubst $(LIGHT_PCAPNG_HOME)/src/%.c,$(LIGHT_P
 ifdef WIN32
 DEPS := -DWPCAP -DHAVE_REMOTE -DHAVE_STRUCT_TIMESPEC
 endif
+ifdef FREEBSD
+DEPS := -DFREEBSD
+endif
 ifdef LINUX
 DEPS := -DLINUX
 endif
@@ -47,6 +50,9 @@ INCLUDES := -I"./src" \
 ifdef WIN32
 INCLUDES += -I$(MINGW_HOME)/include/ddk \
 			-I$(WINPCAP_HOME)/Include
+endif
+ifdef FREEBSD
+INCLUDES += -I/usr/include/netinet
 endif
 ifdef LINUX
 INCLUDES += -I/usr/include/netinet

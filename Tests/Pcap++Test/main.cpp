@@ -502,6 +502,8 @@ bool sendURLRequest(string url)
 	//TODO: what about windows 64?
 #ifdef WIN32
 	string cmd = "cUrl\\curl_win32.exe -s -o cUrl\\curl_output.txt";
+#elif FREEBSD
+	string cmd = "/usr/local/bin/curl -s -o cUrl/curl_output.txt";
 #elif LINUX
 	string cmd = "cUrl/curl.linux32 -s -o cUrl/curl_output.txt";
 #elif MAC_OS_X
@@ -5758,6 +5760,9 @@ PCAPP_TEST(TestRawSockets)
 #if defined(WIN32) || defined(WINx64) || defined(PCAPPP_MINGW_ENV)
 	ProtocolType protocol = (ipAddr.get()->getType() == IPAddress::IPv4AddressType ? IPv4 : IPv6);
 	bool sendSupported = false;
+#elif FREEBSD
+	ProtocolType protocol = Ethernet;
+	bool sendSupported = true;
 #elif LINUX
 	ProtocolType protocol = Ethernet;
 	bool sendSupported = true;

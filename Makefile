@@ -78,6 +78,7 @@ ifdef PF_RING_HOME
 	$(CP) $(EXAMPLE_PF_RING1)/Bin/* ./Dist/examples
 endif
 	$(CP) mk/PcapPlusPlus.mk ./Dist/mk
+	cd Dist; ln -s header pcapplusplus
 	@echo 'Finished successfully building PcapPlusPlus'
 
 # PcapPlusPlus libs only

@@ -33,6 +33,8 @@
 // On Linux and Windows this is not the case so we keep the -1 value
 #ifdef MAC_OS_X
 #define LIBPCAP_OPEN_LIVE_TIMEOUT 1
+#elif FREEBSD
+#define LIBPCAP_OPEN_LIVE_TIMEOUT 1
 #else
 #define LIBPCAP_OPEN_LIVE_TIMEOUT -1
 #endif

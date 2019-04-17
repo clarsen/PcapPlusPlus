@@ -17,6 +17,9 @@ OBJS_FILENAMES := $(filter-out Obj/debug_new.o,$(OBJS_FILENAMES_DEBUG))
 ifdef WIN32
 DEPS := -DWPCAP -DHAVE_REMOTE
 endif
+ifdef FREEBSD
+DEPS := -DFREEBSD
+endif
 ifdef LINUX
 DEPS := -DLINUX
 endif
@@ -34,6 +37,9 @@ INCLUDES := -I"./src" \
 ifdef WIN32
 INCLUDES += -I$(MINGW_HOME)/include/ddk \
 			-I$(WINPCAP_HOME)/Include
+endif
+ifdef FREEBSD
+INCLUDES += -I/usr/include/netinet
 endif
 ifdef LINUX
 INCLUDES += -I/usr/include/netinet

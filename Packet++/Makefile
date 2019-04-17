@@ -21,6 +21,9 @@ endif
 ifdef LINUX
 DEPS := -DLINUX
 endif
+ifdef FREEBSD
+DEPS := -DFREEBSD
+endif
 ifdef MAC_OS_X
 DEPS := -DMAC_OS_X
 endif
@@ -35,6 +38,9 @@ INCLUDES += -I$(MINGW_HOME)/include/ddk \
 			-I$(WINPCAP_HOME)/Include
 endif
 ifdef LINUX
+INCLUDES += -I/usr/include/netinet
+endif
+ifdef FREEBSD
 INCLUDES += -I/usr/include/netinet
 endif
 			

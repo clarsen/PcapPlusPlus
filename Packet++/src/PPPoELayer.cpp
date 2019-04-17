@@ -11,6 +11,8 @@
 #include <winsock2.h>
 #elif LINUX
 #include <in.h>
+#elif FREEBSD
+#include <in.h>
 #endif
 
 namespace pcpp

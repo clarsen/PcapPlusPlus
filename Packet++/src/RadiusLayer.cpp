@@ -7,6 +7,8 @@
 #include <sstream>
 #if defined(WIN32) || defined(WINx64) //for using ntohl, ntohs, etc.
 #include <winsock2.h>
+#elif FREEBSD
+#include <in.h> //for using ntohl, ntohs, etc.
 #elif LINUX
 #include <in.h> //for using ntohl, ntohs, etc.
 #elif MAC_OS_X

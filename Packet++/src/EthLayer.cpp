@@ -11,6 +11,8 @@
 #include <string.h>
 #if defined(WIN32) || defined(WINx64) || defined(PCAPPP_MINGW_ENV)
 #include <winsock2.h>
+#elif FREEBSD
+#include <in.h>
 #elif LINUX
 #include <in.h>
 #elif MAC_OS_X
