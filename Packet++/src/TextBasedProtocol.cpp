@@ -433,7 +433,7 @@ HeaderField::HeaderField(TextBasedProtocolMessage* TextBasedProtocolMessage, int
 	else
 		m_FieldSize = fieldEndPtr - fieldData + 1;
 
-	if ((*fieldData) == '\r' || (*fieldData) == '\n')
+	if ((*fieldData) == '\r' || (*fieldData) == '\n' || m_FieldSize == 0)
 	{
 		m_FieldNameSize = -1;
 		m_ValueOffsetInMessage = -1;
