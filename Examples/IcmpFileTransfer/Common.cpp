@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <getopt.h>
-#if !defined(WIN32) && !defined(WINx64)
+#if !defined(WIN32) && !defined(WINx64) && !defined(MAC_OS_X)
 #include <in.h>
 #endif
 #include "EthLayer.h"

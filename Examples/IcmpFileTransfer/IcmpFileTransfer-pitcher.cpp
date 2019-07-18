@@ -12,7 +12,7 @@
 #ifndef _MSC_VER
 #include "unistd.h"
 #endif
-#if !defined(WIN32) && !defined(WINx64) && !defined(PCAPPP_MINGW_ENV) 
+#if !defined(WIN32) && !defined(WINx64) && !defined(PCAPPP_MINGW_ENV) && !defined(MAC_OS_X) 
 #include <in.h>
 #endif
 #include "EthLayer.h"

@@ -1,5 +1,7 @@
 ### MAC OS X ###
 
+PCAPPP_BUILD_FLAGS += -DMAC_OS_X=1
+
 # includes
 PCAPPP_INCLUDES += -I/usr/include/netinet
 
