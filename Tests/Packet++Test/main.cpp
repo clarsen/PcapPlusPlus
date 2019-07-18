@@ -34,10 +34,10 @@
 #include <string.h>
 #ifdef WIN32
 #include <winsock2.h>
-#elif LINUX
-#include <in.h> //for using ntohl, ntohs, etc.
 #elif MAC_OS_X
 #include <arpa/inet.h> //for using ntohl, ntohs, etc.
+#else
+#include <in.h> //for using ntohl, ntohs, etc.
 #endif
 #ifdef _MSC_VER
 #include <SystemUtils.h>
