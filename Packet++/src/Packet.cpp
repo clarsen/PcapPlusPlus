@@ -71,7 +71,8 @@ void Packet::setRawPacket(RawPacket* rawPacket, bool freeRawPacket, ProtocolType
 		curLayer->m_IsAllocatedInPacket = true;
 	}
 
-	if (curLayer != NULL &&  curLayer->getOsiModelLayer() > parseUntilLayer)
+	/* only clear out last layer if it is higher than layer of interest and not a protocol of interest */
+	if (curLayer != NULL &&  curLayer->getOsiModelLayer() > parseUntilLayer && (curLayer->getProtocol() & parseUntil) == 0)
 	{
 		m_LastLayer = curLayer->getPrevLayer();
 		delete curLayer;
