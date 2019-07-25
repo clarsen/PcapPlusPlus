@@ -77,6 +77,10 @@ void Packet::setRawPacket(RawPacket* rawPacket, bool freeRawPacket, ProtocolType
 		m_LastLayer = curLayer->getPrevLayer();
 		delete curLayer;
 		m_LastLayer->m_NextLayer = NULL;
+	} 
+
+	if (curLayer != NULL) {
+		curLayer->m_IsAllocatedInPacket = true; // don't leak
 	}
 
 	if (parseUntil == UnknownProtocol && parseUntilLayer == OsiModelLayerUnknown)
